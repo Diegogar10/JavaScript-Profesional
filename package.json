@@ -1,0 +1,23 @@
+{
+  "name": "platzivideo",
+  "version": "1.0.0",
+  "description": "Clase profesional de javascrip donde este sera una prueba de un manejador de video multimedia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "npm",
+    "html",
+    "css",
+    "diseño"
+  ],
+  "author": "Diego Garcia <diegogar92@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
