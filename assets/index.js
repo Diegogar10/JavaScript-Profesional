@@ -1,23 +1,19 @@
+import MediaPlayer, {foo} from './MediaPlayer.js';
+import AutoPlay from './plugins/AutoPlay.js';
+import AutoPause from './plugins/AutoPause.ts';
+
 const video = document.querySelector(".movie");
-const boton = document.querySelector("#playButton");
+const botonplay = document.querySelector("#playButton");
+const botonmute = document.querySelector("#muteButton");
       
-//boton.onclick = () => video.play();
+//boton.onclick = () => video.play()
 
-function MediaPlayer(config){
-this.media = config.el;
-}
+const player = new MediaPlayer({el:video, plugins:[
+    new AutoPlay(), new AutoPause()
+]});
+botonplay.onclick = () => player.togglePlay();
+botonmute.onclick = () => player.toggleMute();
 
-MediaPlayer.prototype.play = function(){
-    this.media.play();
-}
-MediaPlayer.prototype.pause = function(){
-    this.media.pause();
-}
-MediaPlayer.prototype.togglePlay = function(){
-    if(this.media.paused) this.media.play();
-    else this.media.pause() ; 
-}
-
-const player = new MediaPlayer({el:video});
-boton.onclick = () => player.togglePlay();
-      
+('serviceWorker' in navigator)
+    ? navigator.serviceWorker.register('/sw.js').catch(error=>{console.log(error.message)})
+    : console.log();
